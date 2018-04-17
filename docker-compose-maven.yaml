@@ -2,11 +2,11 @@ version: "2.1"
 
 services:
 
-  maven-web-services-app:
+  maven-java-ee-web-services-app:
     build:
       context: .
       dockerfile: .mvn/Dockerfile
-    volumes: ["maven-web-services-app-data:/home/app"]
+    volumes: ["maven-java-ee-web-services-app-data:/home/app"]
     ports:
     - "5005:5005"
     - "8080:8080"
@@ -15,7 +15,7 @@ services:
     #mem_limit: 786432000 # container limit: 700Mb (700 * 1024 * 1024)
 
 volumes:
-  maven-web-services-app-data: {}
+  maven-java-ee-web-services-app-data: {}
 
 networks:
   backing-services:

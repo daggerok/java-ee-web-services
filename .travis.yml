@@ -18,7 +18,8 @@ before_script:
 
 script:
 
-- bash ./mvnw >/dev/null 2>&1
+- ./mvnw -U >/dev/null
+- ./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 - wait_for 8080 5005 9990
 - sleep 20
 - |
@@ -31,16 +32,13 @@ script:
               </dag:greeting>
            </soapenv:Body>
         </soapenv:Envelope>' | http post :8080/app/App 'content-type:application/xml'
+- ./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down
 
 - bash ./gradlew >/dev/null 2>&1
 - bash ./gradlew composeUp
 - wait_for 8080 5005 9990
 - sleep 5
 - >
-
-- wait_for 8080 5005 9990
-- sleep 20
-- |
   echo '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                           xmlns:dag="http://daggerok/">
            <soapenv:Header/>
@@ -50,6 +48,7 @@ script:
               </dag:greeting>
            </soapenv:Body>
         </soapenv:Envelope>' | http post :8080/app/App 'content-type:application/xml'
+- bash ./gradlew composeDown
 
 cache:
   directories:

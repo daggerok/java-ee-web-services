@@ -2,11 +2,11 @@ version: "2.1"
 
 services:
 
-  gradle-web-services-app:
+  gradle-java-ee-web-services-app:
     build:
       context: .
       dockerfile: gradle/Dockerfile
-    volumes: ["gradle-web-services-app-data:/home/app"]
+    volumes: ["gradle-java-ee-web-services-app-data:/home/app"]
     ports:
     - "5005:5005"
     - "8080:8080"
@@ -15,7 +15,7 @@ services:
     #mem_limit: 786432000 # container limit: 700Mb (700 * 1024 * 1024)
 
 volumes:
-  gradle-web-services-app-data: {}
+  gradle-java-ee-web-services-app-data: {}
 
 networks:
   backing-services:

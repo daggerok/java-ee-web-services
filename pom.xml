@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>daggerok</groupId>
-  <artifactId>web-services</artifactId>
+  <artifactId>java-ee-web-services</artifactId>
   <version>0.0.1</version>
   <packaging>war</packaging>
 
