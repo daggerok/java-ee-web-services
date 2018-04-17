@@ -30,15 +30,7 @@ docker logs -f java-ee-web-services_gradle-java-ee-web-services-app_1 &
 
 http :8080/app/App\?wsdl
 
-echo '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                        xmlns:dag="http://daggerok/">
-         <soapenv:Header/>
-         <soapenv:Body>
-            <dag:greeting>
-               <arg0>Ololo</arg0>
-            </dag:greeting>
-         </soapenv:Body>
-      </soapenv:Envelope>' | http post :8080/app/App 'content-type:application/xml'
+curl -XPOST http://0.0.0.0:8080/app/App --header "content-type:text/xml" -d @request.xml | xmllint --format -
 
 ./gradlew composeDown
 ----

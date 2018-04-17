@@ -1,0 +1,10 @@
+<!-- curl -XPOST http://0.0.0.0:8080/app/App -->
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:dag="http://daggerok/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <dag:greeting>
+      <arg0>Ololo</arg0>
+    </dag:greeting>
+  </soapenv:Body>
+</soapenv:Envelope>
